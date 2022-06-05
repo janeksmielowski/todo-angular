@@ -76,7 +76,8 @@
               "browserTarget": "todo-angular:build:production"
             },
             "development": {
-              "browserTarget": "todo-angular:build:development"
+              "browserTarget": "todo-angular:build:development",
+              "proxyConfig": "proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

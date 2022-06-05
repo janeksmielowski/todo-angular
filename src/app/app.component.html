@@ -7,10 +7,10 @@
       <div class="md-container">
         <div class="todo-container">
           <mat-card *ngFor="let item of todoItemsIncomplete" class="todo-card">
-            <mat-checkbox (change)="toggleTodo(item)" [checked]="item.completed">
-              {{item.title}}
+            <mat-checkbox (change)="toggleTodo(item)" [checked]="item.done">
+              {{item.text}}
             </mat-checkbox>
-            <button mat-icon-button matTooltip="Delete" aria-label="Delete" (click)="removeTodo(item)">
+            <button mat-icon-button matTooltip="Delete" aria-label="Delete" (click)="removeTodo(item.id)">
               <mat-icon>delete</mat-icon>
             </button>
           </mat-card>
@@ -18,7 +18,7 @@
         <div class="add-todo-container">
           <mat-form-field appearance="outline">
             <mat-label>Add todo</mat-label>
-            <input #newTodoInput matInput placeholder="What do you want to do?">
+            <input #newTodoInput matInput (keyup.enter)="addTodo(newTodoInput.value)" placeholder="What do you want to do?">
           </mat-form-field>
           <button mat-icon-button matTooltip="Submit" aria-label="Submit" (click)="addTodo(newTodoInput.value)">
             <mat-icon>send</mat-icon>
@@ -32,10 +32,10 @@
       <div class="md-container">
         <div class="todo-container">
           <mat-card *ngFor="let item of todoItemsComplete" class="todo-card">
-            <mat-checkbox (change)="toggleTodo(item)" [checked]="item.completed">
-              {{item.title}}
+            <mat-checkbox (change)="toggleTodo(item)" [checked]="item.done">
+              {{item.text}}
             </mat-checkbox>
-            <button mat-icon-button matTooltip="Delete" aria-label="Delete" (click)="removeTodo(item)">
+            <button mat-icon-button matTooltip="Delete" aria-label="Delete" (click)="removeTodo(item.id)">
               <mat-icon>delete</mat-icon>
             </button>
           </mat-card>
@@ -48,10 +48,10 @@
       <div class="md-container">
         <div class="todo-container">
           <mat-card *ngFor="let item of todoItems" class="todo-card">
-            <mat-checkbox (change)="toggleTodo(item)" [checked]="item.completed">
-              {{item.title}}
+            <mat-checkbox (change)="toggleTodo(item)" [checked]="item.done">
+              {{item.text}}
             </mat-checkbox>
-            <button mat-icon-button matTooltip="Delete" aria-label="Delete" (click)="removeTodo(item)">
+            <button mat-icon-button matTooltip="Delete" aria-label="Delete" (click)="removeTodo(item.id)">
               <mat-icon>delete</mat-icon>
             </button>
           </mat-card>
